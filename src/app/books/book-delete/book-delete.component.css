@@ -1,0 +1,16 @@
+.book-form {
+    margin: 3% auto;
+    min-width: 250px;
+    max-width: 350px;
+    width: 100%;
+}
+h2{
+    text-align: center;
+}
+.full-width-field {
+    width: 100%;
+}
+button {
+    margin: 10% auto;
+    display:block;
+}

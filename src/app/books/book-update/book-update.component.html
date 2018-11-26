@@ -1,0 +1,39 @@
+<mat-card class="book-form">
+  <h2>Update Book</h2>
+  <form (ngSubmit)="onGetBookDetails(f)" #f="ngForm">
+    <mat-form-field class="full-width-field">
+      <input type="text" name="isbn" matInput placeholder="Enter Book ISBN number" ngModel>
+    </mat-form-field>
+    <span *ngIf="!bookForm" style="text-align: center"><button type="submit" mat-raised-button color="primary">Get
+        Details</button></span>
+
+  </form>
+  <form (ngSubmit)="onUpdateBook(updateBookForm)" [formGroup]="updateBookForm" *ngIf="bookForm">
+    <mat-form-field class="full-width-field">
+      <input type="text" name="name" matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="text" name="author" matInput placeholder="Author" formControlName="author">
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="text" name="imagePath" matInput placeholder="Image URL" formControlName="imagePath">
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <textarea type="text" name="description" matInput placeholder="Description" rows="6" formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="text" name="rackNo" matInput placeholder="Rack No." formControlName="rackNo">
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <mat-select placeholder="Select Category" name="category" formControlName="category">
+        <mat-option *ngFor="let category of categories" [value]="category.value">
+          {{category.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="number" name="copies" matInput placeholder="Number of Copies" formControlName="copies">
+    </mat-form-field>
+    <span style="text-align: center"><button type="submit" mat-raised-button color="primary">Update</button></span>
+  </form>
+</mat-card>

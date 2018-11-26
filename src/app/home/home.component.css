@@ -1,0 +1,11 @@
+.content {
+    text-align: center;
+    text-align-last: center;
+    margin: 15% auto;
+}
+
+@media (max-width: 767px) {
+    .content {
+        margin: 50% auto;
+    }
+}

@@ -1,0 +1,13 @@
+<div *ngFor="let userBook of userBooks" style="margin:30px">
+  <mat-card class="book-card">
+    <img mat-card-image [src]="userBook.imagePath" alt="{{ userBook.name }}" class="img-responsive" style="margin:auto;height: 200px; width:200px">
+    <mat-card-content>
+      <h4 style="padding-top: 15px;">Name: {{ userBook.name }}</h4>
+      <h4 style="padding-top: 15px;">ISBN: {{ userBook.isbn }}</h4>
+      <div style="margin-left:15px;">
+        <button mat-raised-button color="primary" style="float:left; margin:10px;" (click)="onRenewBook()">Renew</button>
+        <button mat-raised-button color="primary" style="float:left;margin:10px;" (click)="onReturnBook(userBook.isbn)">Return</button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

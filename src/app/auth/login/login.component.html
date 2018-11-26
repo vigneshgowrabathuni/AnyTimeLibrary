@@ -1,0 +1,17 @@
+<mat-card class="login-form">
+  <span class="error" *ngIf="errMsg">{{ errMsg }}</span>
+  <h2>Login</h2>
+  <form (ngSubmit)="onLogin(f)" #f="ngForm">
+    <mat-form-field class="full-width-field">
+      <input type="email" name="email" matInput placeholder="Email" ngModel>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="password" name="password" matInput placeholder="Password" ngModel>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Login</button>
+    <div class="regFpwdSec">
+      <p>Need to create an account?&nbsp;<a [routerLink]="['/register']"><b>Create one</b></a></p>
+      <p>Forgot your password?&nbsp;<a [routerLink]="['/reset']"><b>Recover/Reset</b></a></p>
+    </div>
+  </form>
+</mat-card>

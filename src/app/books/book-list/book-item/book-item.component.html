@@ -1,0 +1,9 @@
+<a style="cursor: pointer;" class="list-group-item clearfix">
+  <mat-card class="book-card">
+    <img mat-card-image [src]="book.imagePath" alt="{{ book.name }}" class="img-responsive" style="margin:auto;height: 200px; width:200px">
+    <mat-card-content>
+      <h4 style="padding-top: 15px;">{{ book.name }}</h4>
+      <button mat-raised-button color="primary" (click)="openDialog(book)">View Book</button>
+    </mat-card-content>
+  </mat-card>
+</a>

@@ -1,0 +1,17 @@
+.user-form {
+    margin: 3% auto;
+    min-width: 300px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+.full-width-field {
+    width: 100%;
+}
+button {
+    margin: 10% auto;
+    display:block;
+}

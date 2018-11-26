@@ -1,0 +1,22 @@
+<mat-card class="reg-form">
+  <h2>Register</h2>
+  <form (ngSubmit)="onRegister(f)" #f="ngForm">
+    <mat-form-field class="full-width-field">
+      <input type="text" name="name" matInput placeholder="Name" ngModel>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="email" name="email" matInput placeholder="Email" ngModel>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="password" name="password" matInput placeholder="Password" ngModel>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="password" name="confirmpassword" matInput placeholder="Confirm Password" ngModel>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Register</button>
+    <div class="regFpwdSec form-group">
+      <p>Already have an account?&nbsp;<a [routerLink]="['/login']"><b>Login</b></a></p>
+      <p>Forgot your password?&nbsp;<a [routerLink]="['/reset']"><b>Recover/Reset</b></a></p>
+    </div>
+  </form>
+</mat-card>

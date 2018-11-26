@@ -1,0 +1,3 @@
+<div *ngFor="let bookEl of books;let i = index" class="bookCard">
+  <app-book-item [book]="bookEl" [index]="i"></app-book-item>
+</div>

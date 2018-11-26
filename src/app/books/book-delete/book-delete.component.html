@@ -1,0 +1,9 @@
+<mat-card class="book-form">
+  <h2>Delete Book</h2>
+  <form (ngSubmit)="onDeleteBook(f)" #f="ngForm">
+    <mat-form-field class="full-width-field">
+      <input type="text" name="isbn" matInput placeholder="Enter Book ISBN number" ngModel>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Delete</button>
+  </form>
+</mat-card>

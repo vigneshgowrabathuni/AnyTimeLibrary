@@ -1,0 +1,19 @@
+<div fxLayout="row" fxLayoutAlign="start stretch">
+  <div class="searchDiv">
+    <form (ngSubmit)="onSearch(f)" #f="ngForm">
+      <table>
+        <tr>
+          <td>
+            <mat-form-field class="search-field-width">
+              <input type="text" [(ngModel)]="f.search" name="search" matInput placeholder="Enter Book Name" ngModel>
+            </mat-form-field>
+          </td>
+          <td>
+            <button type="submit" mat-raised-button color="primary">Search</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <app-book-list></app-book-list>
+</div>

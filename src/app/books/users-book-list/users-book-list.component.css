@@ -1,0 +1,16 @@
+
+.book-card {
+    width: 250px;
+    text-align: center;
+    float: left;
+}
+
+@media only screen and (max-width: 767px) {
+    
+.book-card {
+    width: 250px;
+    text-align: center;
+    float: left;
+    margin: 35px;
+}
+}

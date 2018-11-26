@@ -1,0 +1,12 @@
+<div *ngFor="let userBook of userBooks" style="margin:30px">
+  <mat-card class="book-card">
+    <img mat-card-image [src]="userBook.imagePath" alt="{{ userBook.name }}" class="img-responsive" style="margin:auto;height: 200px; width:200px">
+    <mat-card-content>
+      <p style="padding-top: 10px;">Title: {{ userBook.name }}</p>
+      <p style="padding-top: 5px;">ISBN: {{ userBook.isbn }}</p>
+      <p style="padding-top: 5px;">Author: {{ userBook.author }}</p>
+      <p style="padding-top: 5px;">User Id: {{ userBook.userEmail }}</p>
+      <p style="padding-top: 5px;">Issued Date : {{ userBook.issuedDateTime }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,11 @@
+.search-field-width {
+    width: 100%;
+}
+
+.searchDiv {
+    margin: 3% auto;
+    text-align: center;
+    min-width: 200px;
+    max-width: 300px;
+    width: 100%;
+}

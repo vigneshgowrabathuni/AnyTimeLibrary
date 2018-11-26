@@ -1,0 +1,9 @@
+.bookCard{
+    float: left;
+}
+@media only screen and (max-width: 767px) {
+    .bookCard {
+        float: left;
+        margin: 35px;
+    }
+}

@@ -1,0 +1,34 @@
+<mat-card class="book-form">
+  <h2>Add Book</h2>
+  <form (ngSubmit)="onAddBook(f)" #f="ngForm">
+    <mat-form-field class="full-width-field">
+      <input type="text" name="name" matInput placeholder="Name" ngModel>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="text" name="isbn" matInput placeholder="ISBN" ngModel>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="text" name="author" matInput placeholder="Author" ngModel>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="text" name="imagePath" matInput placeholder="Image URL" ngModel>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <textarea type="text" name="description" matInput placeholder="Description" rows="6" ngModel></textarea>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="text" name="rackNo" matInput placeholder="Rack No." ngModel>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <mat-select placeholder="Select Category" name="category" ngModel>
+        <mat-option *ngFor="let category of categories" [value]="category.value">
+          {{category.value}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="full-width-field">
+      <input type="number" name="copies" matInput placeholder="Number of Copies" ngModel>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary">Add</button>
+  </form>
+</mat-card>
