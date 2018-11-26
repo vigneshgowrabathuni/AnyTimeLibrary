@@ -54,7 +54,7 @@
           <mat-icon>library_books</mat-icon>
           <span>User Books</span>
         </button>
-        <button mat-menu-item routerLink="/user-profile">
+        <button mat-menu-item routerLink="/user-profile" *ngIf="!userTypeAdmin && smWidth">
           <mat-icon>account_circle</mat-icon>
           <span>My Profile</span>
         </button>

@@ -25,11 +25,11 @@ export class UserBookListComponent implements OnInit, OnDestroy {
     public snackBar: MatSnackBar) { }
   ngOnInit() {
 
-    this.subscription = this.bookService.userBooksChanged.subscribe(
-      (books: UserBook[]) => {
-        this.userBooks = books;
-      }
-    );
+    // this.subscription = this.bookService.userBooksChanged.subscribe(
+    //   (books: UserBook[]) => {
+    //     this.userBooks = books;
+    //   }
+    // );
     const emailID = this.authService.getUserEmailID();
     this.userBooks = this.bookService.getUserBooksByEmailID(emailID);
     console.log(this.userBooks);
@@ -40,8 +40,8 @@ export class UserBookListComponent implements OnInit, OnDestroy {
     this.snackBar.open('Book renewed Successfully!!', 'OK', config);
   }
 
-  onReturnBook(bookISBN) {
-    this.bookService.returnBookByISBN(bookISBN);
+  onReturnBook(emailID, isbn) {
+    this.userBooks = this.bookService.returnBook(emailID, isbn);
     this.dataStorageService.storeUserBooks().subscribe((response: Response) => {
       // console.log(response);
       const config = new MatSnackBarConfig();
@@ -54,6 +54,6 @@ export class UserBookListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 }

@@ -6,7 +6,7 @@
       <h4 style="padding-top: 15px;">ISBN: {{ userBook.isbn }}</h4>
       <div style="margin-left:15px;">
         <button mat-raised-button color="primary" style="float:left; margin:10px;" (click)="onRenewBook()">Renew</button>
-        <button mat-raised-button color="primary" style="float:left;margin:10px;" (click)="onReturnBook(userBook.isbn)">Return</button>
+        <button mat-raised-button color="primary" style="float:left;margin:10px;" (click)="onReturnBook(userBook.userEmail, userBook.isbn)">Return</button>
       </div>
     </mat-card-content>
   </mat-card>

@@ -35,6 +35,7 @@ export class BookService {
         }
       }
     }
+    // this.usersBooks = uBooks;
     return uBooks;
   }
 
@@ -142,10 +143,10 @@ export class BookService {
       }
     }
     this.usersBooks.splice(index, 1);
-    this.userBooksChanged.next(this.usersBooks.slice());
+
   }
 
-  returnBookByISBN(bookISBN) {
+  returnBook(emailID, bookISBN) {
     this.deleteUserBookByISBN(bookISBN);
     let index = 0;
     let newBook = {};
@@ -162,5 +163,6 @@ export class BookService {
     }
     this.bookIndex = index;
     this.updateBook(newBook);
+    return this.getUserBooksByEmailID(emailID);
   }
 }
