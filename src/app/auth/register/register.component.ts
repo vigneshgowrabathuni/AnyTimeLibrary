@@ -9,6 +9,7 @@ import {
 } from '@angular/material';
 
 import { UserService } from '../../shared/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,8 @@ export class RegisterComponent implements OnInit {
   constructor(private authService: AuthService,
     private dataStorageService: DataStorageService,
     private userService: UserService,
-    public snackBar: MatSnackBar) { }
+    public snackBar: MatSnackBar,
+    public router: Router) { }
 
   ngOnInit() {
 
@@ -39,5 +41,6 @@ export class RegisterComponent implements OnInit {
       const config = new MatSnackBarConfig();
       this.snackBar.open('Registration Successfull!!', 'OK', config);
     });
+    this.router.navigate(['/login']);
   }
 }

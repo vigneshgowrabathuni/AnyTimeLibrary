@@ -35,7 +35,6 @@ export class BookService {
         }
       }
     }
-    // this.usersBooks = uBooks;
     return uBooks;
   }
 
@@ -48,12 +47,16 @@ export class BookService {
     for (let i = 0; i < this.books.length; i++) {
       const book = this.books[i];
       const bookName = book.name;
+
       if (bookName.toLowerCase().includes(bName)) {
         filteredBooks.push(book);
       }
     }
-    this.books = filteredBooks;
+    if (bName !== '') {
+      this.books = filteredBooks;
+    }
 
+    this.booksChanged.next(this.books.slice());
   }
 
   addBook(book: Book) {

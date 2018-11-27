@@ -29,8 +29,6 @@ export class AuthService {
           });
       })
       .catch(error => {
-        console.log(error.message);
-
         this.errorMsg.next({ 'msg': error.message });
       });
   }

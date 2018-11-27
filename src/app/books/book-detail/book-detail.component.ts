@@ -21,6 +21,7 @@ import {
 })
 export class BookDetailComponent implements OnInit {
   bookData: any;
+  bookStatus = true;
   constructor(private bookService: BookService,
     private dataStorageService: DataStorageService,
     private authService: AuthService,
@@ -28,14 +29,14 @@ export class BookDetailComponent implements OnInit {
     public snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<BookDetailComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Book) {
-
-    // this.activatedRoute.queryParams.subscribe(params => {
-    //   console.log(params['id']);
-    // });
     this.bookData = data;
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (this.bookData.copies === 0) {
+      this.bookStatus = false;
+    }
+  }
 
   onIssueBook() {
 
@@ -47,17 +48,12 @@ export class BookDetailComponent implements OnInit {
       new Date().toLocaleString(),
       this.authService.getUserEmailID()
     );
-
-    console.log(userBook);
-
     this.bookService.addUserBook(userBook);
     this.dataStorageService.storeUserBooks().subscribe((response: Response) => {
-      console.log(response);
     });
 
     this.bookService.updateBookByISBN(this.bookData.isbn);
     this.dataStorageService.storeBooks().subscribe((response: Response) => {
-      console.log(response);
       const config = new MatSnackBarConfig();
       this.snackBar.open('Book Issued Successfully!!', 'OK', config);
     });

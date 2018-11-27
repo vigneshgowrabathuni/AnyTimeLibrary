@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span routerLink="/dashboard">Anytime Library</span>
+    <span routerLink="/home">Anytime Library</span>
     <span class="example-spacer"></span>
     <ng-template [ngIf]="!authService.isAuthenticated()">
       <button mat-button routerLink="/login" *ngIf="mdWidth">Login</button>
@@ -15,8 +15,7 @@
     </ng-template>
 
     <ng-template [ngIf]="authService.isAuthenticated()">
-
-      <button mat-button routerLink="/dashboard" matTooltip="Search Book">
+      <button mat-button routerLink="/searchbooks" matTooltip="Search Book">
         <mat-icon>search</mat-icon>
       </button>
       <button mat-button routerLink="/add" *ngIf="userTypeAdmin && mdWidth" matTooltip="Add Book">
@@ -31,7 +30,7 @@
       <button mat-button *ngIf="!userTypeAdmin" routerLink="/mybooks" matTooltip="My Books">
         <mat-icon>library_books</mat-icon>
       </button>
-      <button mat-button routerLink="/userbooks" *ngIf="userTypeAdmin && mdWidth" matTooltip="User Books">
+      <button mat-button routerLink="/userbooks" *ngIf="userTypeAdmin && mdWidth" matTooltip="Issued Books">
         <mat-icon>library_books</mat-icon>
       </button>
       <button mat-icon-button [matMenuTriggerFor]="usermenu">
@@ -52,9 +51,9 @@
         </button>
         <button mat-button routerLink="/userbooks" *ngIf="userTypeAdmin && smWidth">
           <mat-icon>library_books</mat-icon>
-          <span>User Books</span>
+          <span>Issued Books</span>
         </button>
-        <button mat-menu-item routerLink="/user-profile" *ngIf="!userTypeAdmin && smWidth">
+        <button mat-menu-item routerLink="/user-profile" *ngIf="!userTypeAdmin">
           <mat-icon>account_circle</mat-icon>
           <span>My Profile</span>
         </button>

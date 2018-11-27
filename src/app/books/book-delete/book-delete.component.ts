@@ -22,10 +22,8 @@ export class BookDeleteComponent implements OnInit {
   }
 
   onDeleteBook(form: NgForm) {
-    console.log(form.value.isbn, 'ISBN');
     this.bookService.deleteBookByISBN(form.value.isbn);
     this.dataStorageService.storeBooks().subscribe((response: Response) => {
-      console.log(response);
       const config = new MatSnackBarConfig();
       this.snackBar.open('Book Deleted Successfully!!', 'OK', config);
     });

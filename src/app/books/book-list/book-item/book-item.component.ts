@@ -14,8 +14,6 @@ export class BookItemComponent implements OnInit {
   book: Book;
   @Input()
   index: number;
-
-  animal: string;
   name: string;
 
   constructor(public dialog: MatDialog, private bookService: BookService) { }
@@ -23,16 +21,12 @@ export class BookItemComponent implements OnInit {
   ngOnInit() { }
 
   openDialog(book) {
-    console.log(book);
-
     const dialogRef = this.dialog.open(BookDetailComponent, {
       width: '50%',
       data: book
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
     });
   }
 

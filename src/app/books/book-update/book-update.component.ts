@@ -71,11 +71,9 @@ export class BookUpdateComponent implements OnInit {
       true,
       form.value.copies
     );
-    console.log(newBook);
     this.bookService.updateBook(newBook);
 
     this.dataStorageService.storeBooks().subscribe((response: Response) => {
-      console.log(response);
       const config = new MatSnackBarConfig();
       this.snackBar.open('Book Updated Successfully!!', 'OK', config);
     });

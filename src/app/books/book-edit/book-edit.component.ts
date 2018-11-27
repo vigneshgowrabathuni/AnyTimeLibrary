@@ -46,11 +46,9 @@ export class BookEditComponent implements OnInit {
       true,
       form.value.copies
     );
-    console.log(newBook);
     this.bookService.addBook(newBook);
 
     this.dataStorageService.storeBooks().subscribe((response: Response) => {
-      console.log(response);
       const config = new MatSnackBarConfig();
       this.snackBar.open('Book Added Successfully!!', 'OK', config);
     });

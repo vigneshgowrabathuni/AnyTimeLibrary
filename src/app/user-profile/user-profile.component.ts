@@ -14,7 +14,5 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
     const emailID = this.authService.getUserEmailID();
     this.user = this.userService.getUserByEmailID(emailID);
-    console.log(this.user);
-
   }
 }

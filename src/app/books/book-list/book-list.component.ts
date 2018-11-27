@@ -23,8 +23,6 @@ export class BookListComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    // this.dataStorageService.getBooks();
-
     this.subscription = this.bookService.booksChanged.subscribe(
       (books: Book[]) => {
         this.books = books;
@@ -32,6 +30,7 @@ export class BookListComponent implements OnInit, OnDestroy {
     );
     this.books = this.bookService.getBooks();
     console.log(this.books);
+
   }
 
   ngOnDestroy() {

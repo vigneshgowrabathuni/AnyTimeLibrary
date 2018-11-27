@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,7 +15,6 @@ export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    console.log(this.widthVar);
     if (this.widthVar >= 768) {
       this.mdWidth = true;
     } else {
@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
     }
     this.authService.getUserType().subscribe(
       user => {
-        console.log(user);
         if (user.userType === 'admin') {
           this.userTypeAdmin = true;
         } else {

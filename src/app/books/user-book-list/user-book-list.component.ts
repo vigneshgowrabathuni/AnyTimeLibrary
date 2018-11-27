@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './user-book-list.component.html',
   styleUrls: ['./user-book-list.component.css']
 })
-export class UserBookListComponent implements OnInit, OnDestroy {
+export class UserBookListComponent implements OnInit {
   userBooks = [];
   subscription: Subscription;
 
@@ -23,16 +23,10 @@ export class UserBookListComponent implements OnInit, OnDestroy {
     private dataStorageService: DataStorageService,
     private authService: AuthService,
     public snackBar: MatSnackBar) { }
-  ngOnInit() {
 
-    // this.subscription = this.bookService.userBooksChanged.subscribe(
-    //   (books: UserBook[]) => {
-    //     this.userBooks = books;
-    //   }
-    // );
+  ngOnInit() {
     const emailID = this.authService.getUserEmailID();
     this.userBooks = this.bookService.getUserBooksByEmailID(emailID);
-    console.log(this.userBooks);
   }
 
   onRenewBook() {
@@ -43,17 +37,11 @@ export class UserBookListComponent implements OnInit, OnDestroy {
   onReturnBook(emailID, isbn) {
     this.userBooks = this.bookService.returnBook(emailID, isbn);
     this.dataStorageService.storeUserBooks().subscribe((response: Response) => {
-      // console.log(response);
       const config = new MatSnackBarConfig();
       this.snackBar.open('Book Returned Successfully!!', 'OK', config);
     });
 
     this.dataStorageService.storeBooks().subscribe((response: Response) => {
-      // console.log(response);
     });
-  }
-
-  ngOnDestroy() {
-    // this.subscription.unsubscribe();
   }
 }

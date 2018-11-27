@@ -11,6 +11,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.dataStorageService.getBooks();
-    console.log(localStorage.getItem('token'));
   }
 }
